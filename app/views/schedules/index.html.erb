@@ -1,11 +1,5 @@
 <h3>予定一覧</h3>
 
-<%= link_to "新規追加", :new_schedule %>
-
-<% if flash[:notice] %>
-  <p class="notice"><%= flash[:notice] %></p>
-<% end %>
-
 <table>
   <thead>
     <tr>
@@ -15,9 +9,6 @@
       <th>終了日</th>
       <th>終日</th>
       <th>更新日時</th>
-      <th>詳細</th>
-      <th>編集</th>
-      <th>削除</th>
     </tr>
   </thead>
   <tbody>
@@ -25,19 +16,10 @@
       <tr>
         <td><%= schedule.id %></td>
         <td><%= schedule.title %></td>
-        <td><%= schedule.start_at %></td>
-        <td><%= schedule.end_at %></td>
-        <td><%= schedule.all_day ? "○" : "" %></td>
+        <td><%= schedule.start_date %></td>
+        <td><%= schedule.end_date %></td>
+        <td><%= schedule.all_day ? "◯" : "" %></td>
         <td><%= schedule.updated_at %></td>
-        <td>
-          <%= link_to "詳細", schedule %>
-        </td>
-        <td>
-          <%= link_to "編集", [:edit, schedule] %>
-        </td>
-        <td>
-        <%= link_to "削除", schedule, data: { turbo_method: :delete, turbo_confirm: "本当に削除しますか？" } %>
-        </td>
       </tr>
     <% end %>
   </tbody>

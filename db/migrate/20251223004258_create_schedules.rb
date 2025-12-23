@@ -2,9 +2,10 @@ class CreateSchedules < ActiveRecord::Migration[7.2]
   def change
     create_table :schedules do |t|
       t.string :title
-      t.datetime :start_at
-      t.datetime :end_at
-      t.boolean :all_day
+      t.date :start_date
+      t.date :end_date
+      t.boolean :all_day, default: false, null: false
+      t.text :memo
 
       t.timestamps
     end
