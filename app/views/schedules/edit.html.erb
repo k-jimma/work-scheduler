@@ -1,0 +1,8 @@
+<h3>スケジュール編集</h3>
+
+<%= render "form", schedule: @schedule, submit_label: "更新" %>
+
+<div>
+  <%= link_to "詳細へ戻る", schedule_path(@schedule) %> |
+  <%= link_to "一覧へ戻る", schedules_path %>
+</div>
